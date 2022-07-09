@@ -1,0 +1,39 @@
+<%- include('./partials/header') %> 
+
+<div class="container">
+  <div class="row">
+    <div class="mt-5">
+      <center>
+      <h1 class="font1">Edit Here</h1>
+    </center>
+    </div>
+  </div>
+  <div class="col-lg-6 mx-auto mt-4">
+    <form action="/update/<%= movies._id  %> " method="POST">
+      <div>
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" id="title" value="<%= movies.title %> " required>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="year" class="form-label">Released Year</label>
+        <input type="text" name="year" class="form-control" id="year" value="<%= movies.year %> " required>
+      </div>
+      <div class="mb-3">
+        <label for="character" class="form-label">Favorite Character</label>
+        <input type="text" name="character" class="form-control" id="character" value="<%= movies.character %> " required>
+      </div>
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <select class="form-select" name="rating" aria-label="Default select example" id="rating" value="<%= movies.rating %>" required>
+          <option value="Bad">Bad</option>
+          <option value="Ok">Ok</option>
+          <option value="Good">Good</option>
+        </select>
+      </div>  
+      <button type="submit" class="btn btn-primary mt-2" style="background-color: #7DCC7F;">Update</button>
+    </form>
+  </div>
+</div>
+
+
+<%- include('./partials/footer') %> 

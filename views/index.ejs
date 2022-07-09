@@ -1,0 +1,48 @@
+<%- include('./partials/header') %> 
+
+<div class="container">
+  <div class="row">
+    <div class="my-5">
+      <center>
+      <h1 class="font1">List of movies that Afrida's has seen</h1>
+    </center>
+    <% if (message) { %>
+     <div class="container-sm alert alert-dismissable fade show alert-success" role="alert">
+      <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="close" style="float: right;"></button>
+      <strong><%= message.message %> </strong>    <% } %>
+    </div>
+    <div class="table-responsive">
+      <% if (movie != "") {  %> 
+      <table class="table table-striped text-center">
+        <thead class="text-center">
+          <tr class="table-success">
+            <th>ID</th>
+            <th>Title</th>
+            <th>Released Year</th>
+            <th>Favorite Character</th>
+            <th>Rating</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <% movie.forEach((movies, i)=> { %>
+        <tbody>
+          <td><%= i+1  %> </td>
+          <td><%=movies.title %></td>
+          <td><%=movies.year %></td>
+          <td><%=movies.character %></td>
+          <td><%=movies.rating %></td>
+          <td>
+            <a href="/edit/<%= movies._id %>" class="text-success"><i class="fa fa-edit fa-lg mx-1"></i></a>
+            <a href="/delete/<%= movies._id %>" class="text-danger"><i class="fa fa-trash fa-lg mx-1"></i></a>
+          </td>
+        </tbody>
+        <% }) %>
+      </table>
+      <% } else { %>
+        <h3 class="text-center">No movies found</h3>
+      <% } %>  
+    </div>
+  </div>
+</div>
+
+<%- include('./partials/footer') %> 
